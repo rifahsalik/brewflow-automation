@@ -1,0 +1,28 @@
+/bin/
+/target/
+
+# Allure results and downloaded report tool
+/allure-results/
+/.allure/
+
+# Logs and failure screenshots
+/logs/
+/screenshots/
+*.log
+
+# IDE and operating system files
+.metadata/
+.settings/
+.classpath
+.project
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+/selenium-server-4.51.0.jar
+/test-output/
