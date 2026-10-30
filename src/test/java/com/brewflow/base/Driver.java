@@ -17,7 +17,7 @@ public class Driver {
         ChromeOptions options = new ChromeOptions();
 
         try {
-            URL gridUrl = new URL("http://localhost:4444");
+        	URL gridUrl = new URL("http://192.168.31.162:4444");
             driver.set(new RemoteWebDriver(gridUrl, options));
             getDriver().manage().window().maximize();
         } catch (MalformedURLException e) {

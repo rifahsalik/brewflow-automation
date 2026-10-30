@@ -3,27 +3,25 @@ package com.brewflow.stepdefinitions;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import com.brewflow.base.Driver;
+import com.brewflow.base.BaseSteps;
 import com.brewflow.pages.HomePage;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 
-public class CoffeeCartSteps {
+public class CoffeeCartSteps extends BaseSteps {
 
     private static final Logger logger =
             LogManager.getLogger(CoffeeCartSteps.class);
 
-    private WebDriver driver;
     private HomePage homePage;
 
     @Given("the browser is open")
     public void theBrowserIsOpen() {
-        driver = Driver.getDriver();
+        initializeBrowserReference();
         homePage = new HomePage(driver);
 
         logger.info("Browser is open");
@@ -41,7 +39,6 @@ public class CoffeeCartSteps {
         logger.info("Verifying homepage title");
 
         try {
-            // Wait for the homepage title to appear
             boolean pageLoaded = homePage.isPageLoaded();
 
             Assert.assertTrue(
@@ -49,7 +46,6 @@ public class CoffeeCartSteps {
                     "Coffee Cart homepage did not load"
             );
 
-            // Verify the actual page title
             String actualTitle = homePage.getPageTitle();
 
             Assert.assertEquals(
